@@ -46,8 +46,6 @@ int main()
 	for (int i = 0; i < 5; i++) {
 		// Dispaly exception info.
 		auto eWhat = [](const exception& e){ cout << " caught: " << typeid(e).name() << ", " << e.what();};
-		// Exception pointer.
-		exception_ptr exp;
 
 		try
 		{
@@ -94,6 +92,9 @@ int main()
 		// All other exceptions caught/rethrown here.
 		catch (...)
 		{
+			// Exception pointer.
+			exception_ptr exp;
+
 			exp = current_exception();
 			cout << "catch all";
 			try {
